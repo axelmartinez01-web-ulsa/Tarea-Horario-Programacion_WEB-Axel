@@ -1,146 +1,154 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<title>SIU - Sistema de Inscripcion Universitaria v1.0</title>
+  <meta charset="UTF-8">
+  <title>SIU - Sistema de Inscripción Universitaria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body bgcolor="#e6e6e6" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 
-<table width="100%" border="0" bgcolor="#003366" cellpadding="10">
-  <tr>
-    <td width="20%">
-      <font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="5"><b>SIU-WEB</b></font>
-    </td>
-    <td width="60%" align="center">
-      <font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="4">SISTEMA ACADEMICO DOCENTE</font>
-    </td>
-    <td width="20%" align="right">
-      <font color="#FFFFFF" face="Courier New, Courier, mono" size="2">
-      Usuario: A. Cisneros<br>
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand fw-bold">SIU-WEB</span>
+
+    <div class="text-white text-center d-none d-md-block">
+      SISTEMA ACADÉMICO DOCENTE
+    </div>
+
+    <div class="text-end text-white small">
+      Usuario: A. Cisneros <br>
       Período: 2026-I
-      </font>
-    </td>
-  </tr>
-</table>
+    </div>
+  </div>
+</nav>
 
-<br>
-<center>
-  <font face="Verdana, Arial, Helvetica, sans-serif" size="4" color="#FF0000"><b>REPORTE OFICIAL DE HORARIOS</b></font>
-  <br><br>
-  
-  <table width="80%" border="0">
-    <tr>
-      <td align="right">
-        <input type="button" value="IMPRIMIR REPORTE">
-        <input type="button" value="EXPORTAR A EXCEL">
-        <input type="button" value="CERRAR SESION">
-      </td>
-    </tr>
-  </table>
+<!-- CONTENIDO -->
+<div class="container my-4">
 
-  <br>
+  <h4 class="text-danger text-center fw-bold mb-4">
+    "REPORTE OFICIAL DE HORARIOS"
+  </h4>
 
-  <table width="90%" border="1" cellspacing="0" cellpadding="5" bordercolor="#000000" bgcolor="#FFFFFF">
-    <tr bgcolor="#CCCCCC">
-      <th width="10%"><font face="Arial" size="2">CODIGO</font></th>
-      <th width="30%"><font face="Arial" size="2">ASIGNATURA</font></th>
-      <th width="10%"><font face="Arial" size="2">GRUPO</font></th>
-      <th width="15%"><font face="Arial" size="2">DIA</font></th>
-      <th width="20%"><font face="Arial" size="2">HORARIO</font></th>
-      <th width="15%"><font face="Arial" size="2">AULA</font></th>
-    </tr>
-    
-    <tr>
-      <td align="center"><font face="Arial" size="2">0413</font></td>
-      <td><font face="Arial" size="2"><b>PROGRAMACION WEB</b></font></td>
-      <td align="center"><font face="Arial" size="2">Gpo1</font></td>
-      <td align="center"><font face="Arial" size="2">MARTES</font></td>
-      <td align="center"><font face="Arial" size="2">10:00 - 11:40</font></td>
-      <td align="center"><font face="Arial" size="2">E201</font></td>
-    </tr>
+  <!-- BOTONES -->
+  <div class="d-flex justify-content-end gap-2 mb-3">
+    <button class="btn btn-outline-primary">Imprimir Reporte</button>
+    <button class="btn btn-outline-primary" onclick="exportToExcel()">Enviar a Excel</button>
+    <button class="btn btn-danger">Salir</button>
+  </div>
 
-    <tr bgcolor="#FFFFCC"> <td align="center"><font face="Arial" size="2">0413</font></td>
-      <td><font face="Arial" size="2"><b>PROGRAMACION WEB</b></font></td>
-      <td align="center"><font face="Arial" size="2">Gpo1</font></td>
-      <td align="center"><font face="Arial" size="2">JUEVES</font></td>
-      <td align="center"><font face="Arial" size="2">15:00 - 16:40</font></td>
-      <td align="center"><font face="Arial" size="2">E201</font></td>
-    </tr>
+  <!-- TABLA RESPONSIVA -->
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered text-center align-middle">
+      <thead class="table-secondary">
+        <tr>
+          <th>Código</th>
+          <th>Asignatura</th>
+          <th>Grupo</th>
+          <th>Día</th>
+          <th>Horario</th>
+          <th>Aula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0413</td>
+          <td class="fw-bold">PROGRAMACIÓN WEB</td>
+          <td><span class="badge bg-primary">Gpo 1</span></td>
+          <td>Martes</td>
+          <td>10:00 - 11:40</td>
+          <td><span class="badge bg-success">E201</span></td>
+        </tr>
+        <tr>
+          <td>0413</td>
+          <td class="fw-bold">PROGRAMACIÓN WEB</td>
+          <td><span class="badge bg-primary">Gpo 1</span></td>
+          <td>Jueves</td>
+          <td>15:00 - 16:40</td>
+          <td><span class="badge bg-success">E201</span></td>
+        </tr>
 
-    <tr>
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo3</font></td>
-      <td align="center"><font face="Arial" size="2">LUNES</font></td>
-      <td align="center"><font face="Arial" size="2">08:00 - 09:40</font></td>
-      <td align="center"><font face="Arial" size="2">D104</font></td>
-    </tr>
-    
-    <tr bgcolor="#FFFFCC">
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo3</font></td>
-      <td align="center"><font face="Arial" size="2">MIERCOLES</font></td>
-      <td align="center"><font face="Arial" size="2">08:00 - 09:40</font></td>
-      <td align="center"><font face="Arial" size="2">D104</font></td>
-    </tr>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-secondary">Gpo 3</span></td>
+          <td>Lunes</td>
+          <td>08:00 - 09:40</td>
+          <td><span class="badge bg-warning text-dark">D104</span></td>
+        </tr>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-secondary">Gpo 3</span></td>
+          <td>Miércoles</td>
+          <td>08:00 - 09:40</td>
+          <td><span class="badge bg-warning text-dark">D104</span></td>
+        </tr>
 
-    <tr>
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo4</font></td>
-      <td align="center"><font face="Arial" size="2">LUNES</font></td>
-      <td align="center"><font face="Arial" size="2">10:00 - 11:40</font></td>
-      <td align="center"><font face="Arial" size="2">E201</font></td>
-    </tr>
-    
-    <tr bgcolor="#FFFFCC">
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo4</font></td>
-      <td align="center"><font face="Arial" size="2">JUEVES</font></td>
-      <td align="center"><font face="Arial" size="2">08:00 - 09:40</font></td>
-      <td align="center"><font face="Arial" size="2">E201</font></td>
-    </tr>
-    <tr>
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo7</font></td>
-      <td align="center"><font face="Arial" size="2">LUNES</font></td>
-      <td align="center"><font face="Arial" size="2">03:00 - 04:40</font></td>
-      <td align="center"><font face="Arial" size="2">D104</font></td>
-    </tr>
-    
-    <tr bgcolor="#FFFFCC">
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo7</font></td>
-      <td align="center"><font face="Arial" size="2">JUEVES</font></td>
-      <td align="center"><font face="Arial" size="2">01:00 - 02:40</font></td>
-      <td align="center"><font face="Arial" size="2">D104</font></td>
-    </tr>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-secondary">Gpo 4</span></td>
+          <td>Lunes</td>
+          <td>10:00 - 11:40</td>
+          <td><span class="badge bg-success">E201</span></td>
+        </tr>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-secondary">Gpo 4</span></td>
+          <td>Jueves</td>
+          <td>08:00 - 09:40</td>
+          <td><span class="badge bg-success">E201</span></td>
+        </tr>
 
-      <tr>
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo8</font></td>
-      <td align="center"><font face="Arial" size="2">MARTES</font></td>
-      <td align="center"><font face="Arial" size="2">03:00 - 04:40</font></td>
-      <td align="center"><font face="Arial" size="2">D104</font></td>
-    </tr>
-    
-    <tr bgcolor="#FFFFCC">
-      <td align="center"><font face="Arial" size="2">0402</font></td>
-      <td><font face="Arial" size="2">INTRO. INGENIERIA</font></td>
-      <td align="center"><font face="Arial" size="2">Gpo8</font></td>
-      <td align="center"><font face="Arial" size="2">MIERCOLES</font></td>
-      <td align="center"><font face="Arial" size="2">01:00 - 02:40</font></td>
-      <td align="center"><font face="Arial" size="2">D104</font></td>
-    </tr>
-  </table>
-  
-  <br><br>
-  <hr width="50%">
-  <font size="1" face="Arial">Sistema de Gestión Académica - Derechos Reservados 1999-2005</font>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-dark">Gpo 7</span></td>
+          <td>Lunes</td>
+          <td>03:00 - 04:40</td>
+          <td><span class="badge bg-warning text-dark">D104</span></td>
+        </tr>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-dark">Gpo 7</span></td>
+          <td>Jueves</td>
+          <td>01:00 - 02:40</td>
+          <td><span class="badge bg-warning text-dark">D104</span></td>
+        </tr>
 
-</center>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-warning text-dark">Gpo 8</span></td>
+          <td>Martes</td>
+          <td>03:00 - 04:40</td>
+          <td><span class="badge bg-warning text-dark">D104</span></td>
+        </tr>
+        <tr>
+          <td>0402</td>
+          <td>INTRO. INGENIERÍA</td>
+          <td><span class="badge bg-warning text-dark">Gpo 8</span></td>
+          <td>Miércoles</td>
+          <td>01:00 - 02:40</td>
+          <td><span class="badge bg-warning text-dark">D104</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="w-50 mx-auto">
+  <p class="text-center small text-muted">
+    Sistema de Gestión Académica (la sallle) – Derechos Reservados 2012–2080
+  </p>
+
+</div>
+
 </body>
 </html>
